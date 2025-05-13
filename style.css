@@ -1,0 +1,164 @@
+:root {
+    --font-family: sans-serif;
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --border-color: #ddd;
+    --user-msg-bg: #e7f5ff;
+    --assistant-msg-bg: #f1f3f5;
+    --container-padding: 15px;
+    --input-height: 40px;
+    --button-padding: 8px 15px;
+    --border-radius: 4px;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#app-container {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    overflow: hidden; /* Prevents content spill */
+}
+
+/* Settings View */
+#settings-view {
+    padding: var(--container-padding);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#settings-view h1 {
+    text-align: center;
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+/* Chat View */
+#chat-view {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column;
+    flex-grow: 1; /* Allow chat view to take up remaining space */
+    overflow: hidden; /* Keep contents within bounds */
+    padding: var(--container-padding);
+}
+
+#chat-log {
+    flex-grow: 1; /* Make chat log take available space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-bottom: var(--container-padding);
+    padding-right: 10px; /* Space for scrollbar */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    min-height: 200px; /* Ensure it has some minimum height */
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.message strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.user-message {
+    background-color: var(--user-msg-bg);
+    align-self: flex-end;
+    margin-left: auto; /* Push to right */
+}
+
+.assistant-message {
+    background-color: var(--assistant-msg-bg);
+    align-self: flex-start;
+    margin-right: auto; /* Push to left */
+}
+
+.assistant-message .assistant-response {
+    /* Style for the span where streamed content goes */
+    display: inline; /* Or block if preferred */
+}
+
+#chat-input-area {
+    display: flex;
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--container-padding);
+}
+
+#user-input {
+    flex-grow: 1;
+    height: var(--input-height);
+    padding: 0 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-right: 10px;
+}
+
+button {
+    padding: var(--button-padding);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+#reset-btn {
+    margin-top: 10px;
+    background-color: #6c757d;
+}
+
+#reset-btn:hover {
+     background-color: darken(#6c757d, 10%);
+}
+
+/* Utility to hide elements */
+.hidden {
+    display: none;
+}

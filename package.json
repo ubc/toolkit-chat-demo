@@ -1,0 +1,19 @@
+{
+  "name": "toolkit-chat-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ubc-genai-toolkit/core": "file:../ubc-genai-toolkit-ts/modules/core",
+    "@ubc-genai-toolkit/llm": "file:../ubc-genai-toolkit-ts/modules/llm",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolkit Chat Demo</title>
+
+    <!--
+    This demo uses a separate backend server (server.js) to interact with the
+    UBC GenAI Toolkit's LLM module. This is necessary because the underlying 'ollama'
+    library used by the toolkit has dependencies (like 'node:fs') that cannot run
+    directly in a browser environment.
+
+    The frontend (app.js) handles the UI and sends requests to the backend.
+    app.js is loaded as a module to use modern JavaScript features.
+    -->
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Settings View (Visible Initially) -->
+        <div id="settings-view">
+            <h1>Chat Settings</h1>
+            <form id="settings-form">
+                <div class="form-group">
+                    <label for="user-name">Your Name:</label>
+                    <input type="text" id="user-name" name="user-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="system-prompt">System Prompt:</label>
+                    <textarea id="system-prompt" name="system-prompt" rows="3">You are a helpful assistant.</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="temperature">Temperature:</label>
+                    <input type="number" id="temperature" name="temperature" min="0" max="2" step="0.1" value="0.7">
+                </div>
+                <div class="form-group">
+                    <label for="max-tokens">Max Tokens:</label>
+                    <input type="number" id="max-tokens" name="max-tokens" min="10" step="10" value="500">
+                </div>
+                <button type="submit" id="start-chat-btn">Start Chat</button>
+            </form>
+        </div>
+
+        <!-- Chat View (Hidden Initially) -->
+        <div id="chat-view" style="display: none;">
+            <div id="chat-log"></div>
+            <div id="chat-input-area">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-btn">Send</button>
+            </div>
+             <button id="reset-btn">Start Again</button>
+        </div>
+    </div>
+
+    <!-- Load the frontend application script as a module -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
